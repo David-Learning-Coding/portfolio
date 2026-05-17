@@ -1,26 +1,75 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a0a14;
+  --surface: #15152a;
+  --foreground: #e6e6ff;
+  --muted: #8a8ab0;
+  --accent-pink: #ff2a6d;
+  --accent-cyan: #05d9e8;
+  --accent-yellow: #f7c948;
+  --border: rgba(255, 42, 109, 0.35);
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-surface: var(--surface);
   --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-accent-pink: var(--accent-pink);
+  --color-accent-cyan: var(--accent-cyan);
+  --color-accent-yellow: var(--accent-yellow);
+  --color-border-neon: var(--border);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-pixel: var(--font-press-start);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(255, 42, 109, 0.15), transparent),
+    radial-gradient(ellipse 60% 40% at 80% 110%, rgba(5, 217, 232, 0.12), transparent);
+  background-attachment: fixed;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0,
+    rgba(0, 0, 0, 0) 2px,
+    rgba(0, 0, 0, 0.18) 3px,
+    rgba(0, 0, 0, 0) 4px
+  );
+  z-index: 50;
+  mix-blend-mode: overlay;
+}
+
+.neon-pink {
+  color: var(--accent-pink);
+  text-shadow:
+    0 0 4px rgba(255, 42, 109, 0.8),
+    0 0 12px rgba(255, 42, 109, 0.4);
+}
+
+.neon-cyan {
+  color: var(--accent-cyan);
+  text-shadow:
+    0 0 4px rgba(5, 217, 232, 0.8),
+    0 0 12px rgba(5, 217, 232, 0.4);
+}
+
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+.blink {
+  animation: blink 1s steps(1) infinite;
 }
