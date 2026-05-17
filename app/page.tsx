@@ -1,4 +1,4 @@
-import Link from "next/link";
+import SoundLink from "./components/SoundLink";
 
 export default function Home() {
   return (
@@ -21,12 +21,12 @@ export default function Home() {
           a place to log experiments, post-mortems, and the occasional shipped thing.
         </p>
 
-        <Link
+        <SoundLink
           href="/projects"
           className="inline-block font-[family-name:var(--font-pixel)] text-xs sm:text-sm tracking-widest text-[color:var(--accent-yellow)] border-2 border-[color:var(--accent-yellow)] px-6 py-4 hover:bg-[color:var(--accent-yellow)] hover:text-[color:var(--background)] transition-colors"
         >
           PRESS START<span className="blink ml-1">_</span>
-        </Link>
+        </SoundLink>
 
         <div className="mt-20 font-[family-name:var(--font-pixel)] text-[10px] tracking-widest text-[color:var(--muted)] flex justify-center gap-6">
           <span>HP ████████</span>

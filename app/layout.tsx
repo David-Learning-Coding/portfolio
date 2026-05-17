@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Geist, Geist_Mono, Press_Start_2P } from "next/font/google";
+import SoundLink from "./components/SoundLink";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -37,28 +37,28 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <header className="sticky top-0 z-40 border-b border-[var(--border)] bg-[color:var(--surface)]/80 backdrop-blur">
           <nav className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
-            <Link
+            <SoundLink
               href="/"
               className="font-[family-name:var(--font-pixel)] text-sm tracking-wider neon-pink hover:opacity-80"
             >
               DAVID.SYS
-            </Link>
+            </SoundLink>
             <ul className="flex items-center gap-6 font-[family-name:var(--font-pixel)] text-[10px] tracking-widest">
               <li>
-                <Link
+                <SoundLink
                   href="/"
                   className="text-[color:var(--foreground)] hover:text-[color:var(--accent-cyan)] transition-colors"
                 >
                   HOME
-                </Link>
+                </SoundLink>
               </li>
               <li>
-                <Link
+                <SoundLink
                   href="/projects"
                   className="text-[color:var(--foreground)] hover:text-[color:var(--accent-cyan)] transition-colors"
                 >
                   PROJECTS
-                </Link>
+                </SoundLink>
               </li>
             </ul>
           </nav>
